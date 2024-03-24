@@ -1,8 +1,7 @@
 # PROJECT UPSHIFT
-A generic trading bot that can trade in either crypto or stock but preferably crypto as its easier to work with crypto exchange APIs (free) than the usual stock broker APIs (paid)
+A generic trading bot that can trade in either crypto or stock but preferably crypto as its easier to work with crypto exchange APIs which are free than thestock broker APIs which are mostly paid.
 
 ## Codebase structure
-
 ### WORKER
 * FILE AVAILABILITY/INTEGRITY CHECK
 * UPDATE TICKER DATA
@@ -11,7 +10,7 @@ A generic trading bot that can trade in either crypto or stock but preferably cr
     * CHECK AND UPDATE TRAILING PRICE OF SELL ORDERS
     * GIVE NEW BUY ORDER
     * GIVE NEW SELL ORDER
-* UPDATE AUDIT
+* UPDATE AUDIT DATA
 
 ### DASHBOARD
 * HOMESCREEN AUTHENTICATION
