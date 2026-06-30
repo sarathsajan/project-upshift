@@ -1,1 +1,25 @@
-2024-03-24 - 5paisa seems to be a good stock broker in India with free trading APIs.
+2024-03-24 - 5paisa seems to be a good stock broker in India with free trading
+APIs.
+
+2026-06-30 - We have come a long way and have had major breakthroughs in the
+field of Artificial Intelligence as well in the adoption of AI. I had made a
+crude proof-of-concept of this idea back in 2021-22 without any AI tools during 
+the covid-19 crypto boom. That was a huge success and took my 2k INR to 6k INR,
+partly due to the bull run of BTC. Crypto was good till the govt stepped in and
+made us drown in the tax paperworks. 30% tax on profits. Demoralising.
+
+So come 2023, I decided to build the same tool for the indian trading market.
+This time with the help of AI tools like ChatGPT and Copilot. The solution was
+built much faster and the codebase was much more organised. I did some paper 
+trading and it was able to churn profits although very slow, partly due to the 
+stable nature of regulated markets unlike the hourly volatality of crypto. I am 
+happy and the govt is happy. Promising.
+
+Proof-of-concept was convincing enough for me that I decided to make a better,
+more robust version of this idea and so I started this repo. But time and 
+responsibilities at workplace distracted me from building this self-proclaimed 
+profit-minting project (not back tested at all). Exhausting.
+
+So here we are now in the mid of June 2026 (Did Argentina win the WC?). With all
+the free AI firepower at disposal and an idea, whose logic is built on hopes
+and dreams, here we go for the 3rd attempt at building it finality.
