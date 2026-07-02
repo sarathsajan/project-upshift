@@ -2,7 +2,7 @@
 APIs.
 
 2026-06-30 - We have come a long way and have had major breakthroughs in the
-field of Artificial Intelligence as well in the adoption of AI. I had made a
+field of Artificial Intelligence as well as in the adoption of AI. I had made a
 crude proof-of-concept of this idea back in 2021-22 without any AI tools during 
 the covid-19 crypto boom. That was a huge success and took my 2k INR to 6k INR,
 partly due to the bull run of BTC. Crypto was good till the govt stepped in and
@@ -22,4 +22,8 @@ profit-minting project (not back tested at all). Exhausting.
 
 So here we are now in the mid of June 2026 (Did Argentina win the WC?). With all
 the free AI firepower at disposal and an idea, whose logic is built on hopes
-and dreams, here we go for the 3rd attempt at building it finality.
+and dreams, here we go for the 3rd attempt at building it to finality.
+
+2026-07-02 - the authentication process is very complicated and it seems otp and
+phone is required to be handy when completing the process. I am not sure how
+this would hinder my plan of making it fully automated.
