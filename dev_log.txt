@@ -27,3 +27,8 @@ and dreams, here we go for the 3rd attempt at building it to finality.
 2026-07-02 - the authentication process is very complicated and it seems otp and
 phone is required to be handy when completing the process. I am not sure how
 this would hinder my plan of making it fully automated.
+
+2026-07-03 - ohh god! this is the worst authentication system i have had to 
+work with. Nightmarish configuration in the name of 2FA and TOTP. How am i 
+supposed to automate this if i have to generate a TOTP on my phone all the time 
+and give it in the auth process manually typing, arrghhhh.
