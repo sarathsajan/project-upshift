@@ -1,0 +1,41 @@
+DCA STRATEGY FLOW
+
+
+================= INITIALISE =================
+FETCH list of stocks to consider (price greater than INR 500)
+FETCH details of current stock holdings
+FETCH details of active SELL orders
+
+
+============= MODIFY SELL ORDER =============
+FOR EACH active SELL order in list
+    FETCH active SELL order details (stop loss + limit price)
+    FETCH current price of stock
+    IF current price GREATER THAN limit price * 0.98
+        SET cancel active SELL order
+        SET SELL all units at limit price at +3% of current price with stop loss at -1% of current price
+
+
+=============== NEW SELL ORDER ===============
+FOR EACH stock IN list
+    IF stock IN holdings
+        FETCH avg price of stock
+        FETCH current price of stock
+        IF current price GREATER THAN avg price
+            LET profit percent = 5% = 1.05
+            IF current price GREATER THAN (avg price * profit percent)
+                SET SELL all units at limit price at +3% of current price with stop loss at -1% of current price
+
+
+================= BUY ORDER =================
+FOR EACH stock in list
+    IF stock NOT IN holdings
+        FETCH 20D avg
+        FETCH 5D avg
+        IF 5D avg LESS THAN 20D avg
+            SET BUY 1 unit of stock at market price
+    IF stock IN holdings
+        FETCH avg price of stock
+        FETCH current price of stock
+        IF current price LESS THAN OR EQUAL TO avg price
+            SET BUY 1 unit of stock at market price

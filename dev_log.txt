@@ -32,3 +32,8 @@ this would hinder my plan of making it fully automated.
 work with. Nightmarish configuration in the name of 2FA and TOTP. How am i 
 supposed to automate this if i have to generate a TOTP on my phone all the time 
 and give it in the auth process manually typing, arrghhhh.
+
+2026-07-04 - finally found a way to generate TOTP during runtime. All hail the 
+pyotp package. God sent. Exploring the data returned by the APIs. Feels so 
+overwhelming to go through so much detailed data. Need to go through each data 
+points and reduce it to what we require.

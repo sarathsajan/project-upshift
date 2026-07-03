@@ -21,3 +21,6 @@ In this project we will create a trading bot using the 5paisa APIs.
 ### Phase 4: Operations & Monitoring
 [Jan 2027, planned] SQLite database for tracking all the executed operations and logs
 [Feb 2027, planned] Panic button or kill-switch
+
+
+read the logic.txt file and convert the pusdo code style logic into plain english and add it to the readme.md file under a new section called strategy
