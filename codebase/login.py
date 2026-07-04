@@ -16,13 +16,23 @@ Client.get_totp_session(client_code, get_totp(fivepaisa_totp_secret), pin)
 
 holdings_list = Client.holdings()
 print("list of stocks in hand : ", len(holdings_list))
+print("first item in the list : ", holdings_list[0])
 for stock_kv in holdings_list:
-    print(f"FullName\t: {stock_kv['FullName']}")
-    print(f"AvgRate\t\t: {stock_kv['AvgRate']}")
-    print(f"CurrentPrice\t: {stock_kv['CurrentPrice']}")
-    if int(stock_kv['AvgRate']) > int(stock_kv['CurrentPrice']):
+    if float(stock_kv['AvgRate']) > float(stock_kv['CurrentPrice']):
+        continue
+        print(f"FullName\t: {stock_kv['FullName']}")
+        print(f"AvgRate\t\t: {stock_kv['AvgRate']}")
+        print(f"CurrentPrice\t: {stock_kv['CurrentPrice']}")
+        print(f"DPQty\t\t: {stock_kv['DPQty']}")
+        print(f"Total stock worth in hand : INR {float(stock_kv['DPQty']) * float(stock_kv['CurrentPrice'])}")
         print("BUY")
         print("\n")
     else:
-        print(f"SELL for profits of INR {int(stock_kv['CurrentPrice']) - int(stock_kv['AvgRate'])}")
+        # continue
+        print(f"FullName\t: {stock_kv['FullName']}")
+        print(f"AvgRate\t\t: {stock_kv['AvgRate']}")
+        print(f"CurrentPrice\t: {stock_kv['CurrentPrice']}")
+        print(f"DPQty\t\t: {stock_kv['DPQty']}")
+        print(f"Total stock worth in hand : INR {float(stock_kv['DPQty']) * float(stock_kv['CurrentPrice'])}")
+        print(f"SELL for profits of INR {float(stock_kv['DPQty']) * float(stock_kv['CurrentPrice'])  - float(stock_kv['DPQty']) * float(stock_kv['AvgRate'])}")
         print("\n")
