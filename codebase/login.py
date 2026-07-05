@@ -4,7 +4,15 @@ from datetime import datetime
 import pyotp
 import pprint
 
-def get_totp(secret):
+def get_totp(secret: str) -> str:
+    """Generate a TOTP code from the given secret.
+
+    Args:
+        secret: The shared secret used to generate the one-time password.
+
+    Returns:
+        The current TOTP code as a string.
+    """
     totp = pyotp.TOTP(secret)
     code = totp.now()
     print(f"totp : {code} generated at {datetime.now().strftime('%H:%M:%S')}, valid for 30 seconds")
