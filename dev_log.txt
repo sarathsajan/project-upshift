@@ -37,3 +37,16 @@ and give it in the auth process manually typing, arrghhhh.
 pyotp package. God sent. Exploring the data returned by the APIs. Feels so 
 overwhelming to go through so much detailed data. Need to go through each data 
 points and reduce it to what we require.
+
+2026-07-11 - i have now got somewhat good familiarisation of the most basic
+parts of the API, seems like the web documentation is of no use. utter waste. i
+have to go through the package code and deduce the inputs and outputs myself. it
+seems like i am stuck in the placing order section and the documentation is of 
+no use. This is the message that i recieve when i place an order - 
+    
+    Please register your static IPs first and if you have done it already then
+    retry after some time.
+
+no idea if its a code issue or i have to do some registration on their portal. 
+but what is static ip and how do i get that. maybe copilot will help, i guess.
+sigh.
