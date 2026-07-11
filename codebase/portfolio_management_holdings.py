@@ -13,6 +13,5 @@ def fetch_holdings():
         for item in holdings_list:
             pprint.pprint(item, indent=4)
 
-
 if __name__ == '__main__':
     fetch_holdings()
