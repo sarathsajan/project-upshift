@@ -18,15 +18,14 @@ def get_totp(secret: str) -> str:
 
 def get_authenticated_client() -> None:
     """Create authenticated 5paisa client to communicate with 5paisa APIs"""
-    os.system("clear")
+    if os.name == "nt":
+        os.system("cls") # windows os
+    else:
+        os.system("clear") # linux os
     client = FivePaisaClient(cred=cred)
     client.get_totp_session(fivepaidsa_client_code, get_totp(fivepaisa_totp_secret), fivepaisa_acc_pin)
     return client
 
 
-def main():
-    get_authenticated_client()
-
-
 if __name__ == "__main__":
-    main()
+    get_authenticated_client()

@@ -2,7 +2,7 @@ import pprint
 from user_authentication import get_authenticated_client
 
 
-def main():
+def sell_op():
     client = get_authenticated_client()
     holdings_list = client.holdings()
     if not holdings_list:
@@ -23,4 +23,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    sell_op()

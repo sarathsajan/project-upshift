@@ -12,7 +12,6 @@ def fetch_holdings():
         print("Items in the list : ")
         for item in holdings_list:
             pprint.pprint(item, indent=4)
-            print(client.)
 
 
 if __name__ == '__main__':
