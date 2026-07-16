@@ -1,32 +1,33 @@
 # Project Upshift
 
-A work-in-progress trading automation prototype for Indian stock brokers, originally built around the 5paisa API and now exploring broker-agnostic automation with trailing stop loss support.
+A research-focused trading automation prototype for Indian stock brokers. The repository captures early implementation work for broker API authentication, order management, and a DCA-style trading strategy.
 
 ## What the project does
 
-Project Upshift is designed to automate a disciplined trading strategy using broker APIs and algorithmic order management. The current plan focuses on:
+Project Upshift is intended to automate a trading workflow that:
 
-- authenticating with broker APIs using TOTP-based 2FA
-- fetching market data and position details
-- evaluating active orders for modification or cancellation
-- placing buy and sell orders using a DCA-style strategy
-- managing stop-loss and trailing-profit order behavior
+- connects to broker APIs and handles TOTP-based authentication
+- fetches market data, holdings, and active order details
+- evaluates open orders for cancellation or adjustment
+- applies a rule-based strategy for placing buy and sell orders
+- plans to support stop-loss and trailing order behavior
 
 ## Why the project is useful
 
-This repository captures the research, strategy, and early implementation work for an automated stock trading bot in the Indian market. It is useful for:
+This repository is useful for developers and researchers who want to:
 
-- developers exploring brokerage API automation with Python
-- traders building a rule-based entry/exit workflow
-- maintainers testing a proof-of-concept for broker authentication and order management
-- researchers documenting a trading strategy and migration path away from 5paisa
+- explore Indian broker automation with Python
+- understand broker authentication and order lifecycle handling
+- prototype algorithmic trading workflows using a DCA-inspired strategy
+- maintain a documented path from proof-of-concept to execution-ready code
 
 ## Current status
 
-- Project is in planning / development stage
-- Authentication and TOTP research is underway
-- Broker API integration is currently exploratory
-- No production-ready trading engine is available yet
+- Planning and exploratory development is in progress
+- Authentication and TOTP integration is being researched
+- Broker API workflows are still experimental
+- No production-ready trading engine exists yet
+- `codebase/` is currently empty or pending implementation
 
 ## Getting started
 
@@ -42,45 +43,48 @@ This repository captures the research, strategy, and early implementation work f
 python -m pip install -r requirements.txt
 ```
 
-### Available files
+### Repository files
 
 - `requirements.txt` — dependency manifest for Python packages used by the project
-- `logic.txt` — strategy notes and planned trading flow
-- `dev_log.txt` — development journal and research notes
-- `codebase/` — project source folder (currently empty or under development)
+- `logic.txt` — trading strategy notes and planned logic flow
+- `dev_log.txt` — development journal, research findings, and blocker notes
+- `roadmap.md` — project phases and strategy roadmap
+- `.github/prompts/` — workspace prompt templates for README generation and code review
+- `codebase/` — primary implementation folder (under development)
 
 ### How to use
 
-This repository is currently a prototype; there is no ready-to-run script yet. Use the existing files to:
+This repository is currently a prototype. The best way to get started is:
 
 1. review the trading strategy in `logic.txt`
-2. study authentication and API notes in `dev_log.txt`
-3. add implementation code under `codebase/`
+2. read the development notes in `dev_log.txt`
+3. follow the planned phases in `roadmap.md`
+4. begin implementing broker integration and execution code under `codebase/`
 
 ## Roadmap
 
-Planned development phases include:
+The roadmap includes:
 
 - setup and validation
 - authentication and data retrieval
 - order management (cancel, modify, place orders)
 - operations and monitoring with a tracking database
-- fail-safe controls such as panic button or kill switch
+- fail-safe controls such as a panic button or kill switch
 
 ## Where to get help
 
 - Open an issue in this repository for bugs, questions, or feature requests
-- Review the project notes in `dev_log.txt` and `logic.txt` for implementation context
-- Use community support channels for the chosen broker API if you need help with authentication or trade execution
+- Review `dev_log.txt`, `logic.txt`, and `roadmap.md` for project context
+- Seek broker-specific support if you need help with API authentication or order execution
 
 ## Maintainers and contributing
 
-This project is maintained by the repository owner and is currently open to contributions.
+This project is maintained by the repository owner and is open to contributions.
 
 Contributions are welcome via:
 
-- pull requests with implementation improvements
+- pull requests with implementation or documentation improvements
 - issues for clarifications or feature ideas
-- documentation updates that improve onboarding and development flow
+- updates that improve onboarding and developer flow
 
 > Note: This repository is a research/proof-of-concept project and is not financial advice.
