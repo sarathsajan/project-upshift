@@ -50,3 +50,15 @@ no use. This is the message that i recieve when i place an order -
 no idea if its a code issue or i have to do some registration on their portal. 
 but what is static ip and how do i get that. maybe copilot will help, i guess.
 sigh.
+
+2026-07-15 - ohh my god finally we have trailing stop loss available. but the 
+only problem is that its in upstox broker. that means i have to ditch 5paisa 
+and create new demat account in upstox. all progress lost, back to sqaure 1.
+it seems whatever broker i choose it will not matter as sebi's rule of having a
+registered static ip is gonna kill my dreams of becoming a trillionaire. 
+anyways lets jsut take this solution to the end and see where it can reach and 
+how it will turn out to be. 5paisa api and its documentation was such a painful 
+experience to work with. i hope upstox can do better than them.
+tl;dr we have trailing-stop-loss now and also bye bye 5paisa, hello upstox.
+
+2026-07-16 - clean slate. again.

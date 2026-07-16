@@ -1,26 +1,86 @@
-# PROJECT UPSHIFT
+# Project Upshift
 
-## Objective
-In this project we will create a trading bot using the 5paisa APIs.
+A work-in-progress trading automation prototype for Indian stock brokers, originally built around the 5paisa API and now exploring broker-agnostic automation with trailing stop loss support.
 
-## Execution steps
+## What the project does
 
-### Phase 1: Setup & Validation
-[Mar 2027, planned] File availability and database integrity check
+Project Upshift is designed to automate a disciplined trading strategy using broker APIs and algorithmic order management. The current plan focuses on:
 
-### Phase 2: Authentication & Data Retrieval
-[Jul 2026, in progress] Authenticate and authorise
-[Aug 2026, planned] Fetch latest ticker data
+- authenticating with broker APIs using TOTP-based 2FA
+- fetching market data and position details
+- evaluating active orders for modification or cancellation
+- placing buy and sell orders using a DCA-style strategy
+- managing stop-loss and trailing-profit order behavior
 
-### Phase 3: Order Management
-[Sep 2026, planned] Check and cancel stale BUY orders
-[Oct 2026, planned] Check and modify trailing stop-loss prices of active SELL orders
-[Nov 2026, planned] Place new BUY orders
-[Dec 2026, planned] Place new SELL orders
+## Why the project is useful
 
-### Phase 4: Operations & Monitoring
-[Jan 2027, planned] SQLite database for tracking all the executed operations and logs
-[Feb 2027, planned] Panic button or kill-switch
+This repository captures the research, strategy, and early implementation work for an automated stock trading bot in the Indian market. It is useful for:
 
+- developers exploring brokerage API automation with Python
+- traders building a rule-based entry/exit workflow
+- maintainers testing a proof-of-concept for broker authentication and order management
+- researchers documenting a trading strategy and migration path away from 5paisa
 
-read the logic.txt file and convert the pusdo code style logic into plain english and add it to the readme.md file under a new section called strategy
+## Current status
+
+- Project is in planning / development stage
+- Authentication and TOTP research is underway
+- Broker API integration is currently exploratory
+- No production-ready trading engine is available yet
+
+## Getting started
+
+### Prerequisites
+
+- Python 3.11+ (or compatible Python 3.x)
+- access to an Indian broker API account (5paisa, Upstox, or similar)
+- valid API credentials and any broker-specific registration requirements
+
+### Install dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### Available files
+
+- `requirements.txt` — dependency manifest for Python packages used by the project
+- `logic.txt` — strategy notes and planned trading flow
+- `dev_log.txt` — development journal and research notes
+- `codebase/` — project source folder (currently empty or under development)
+
+### How to use
+
+This repository is currently a prototype; there is no ready-to-run script yet. Use the existing files to:
+
+1. review the trading strategy in `logic.txt`
+2. study authentication and API notes in `dev_log.txt`
+3. add implementation code under `codebase/`
+
+## Roadmap
+
+Planned development phases include:
+
+- setup and validation
+- authentication and data retrieval
+- order management (cancel, modify, place orders)
+- operations and monitoring with a tracking database
+- fail-safe controls such as panic button or kill switch
+
+## Where to get help
+
+- Open an issue in this repository for bugs, questions, or feature requests
+- Review the project notes in `dev_log.txt` and `logic.txt` for implementation context
+- Use community support channels for the chosen broker API if you need help with authentication or trade execution
+
+## Maintainers and contributing
+
+This project is maintained by the repository owner and is currently open to contributions.
+
+Contributions are welcome via:
+
+- pull requests with implementation improvements
+- issues for clarifications or feature ideas
+- documentation updates that improve onboarding and development flow
+
+> Note: This repository is a research/proof-of-concept project and is not financial advice.
