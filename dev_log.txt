@@ -62,3 +62,7 @@ experience to work with. i hope upstox can do better than them.
 tl;dr we have trailing-stop-loss now and also bye bye 5paisa, hello upstox.
 
 2026-07-16 - clean slate. again.
+
+2026-07-19 - so much better documentation for upstox. hats-off to their api and
+sdk team. improves morale by just looing at the detailed and well designed docs 
+along with super good examples. off to a great start.
