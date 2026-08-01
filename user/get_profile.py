@@ -1,11 +1,12 @@
 # Get user profile information using access token
 # https://upstox.com/developer/api-documentation/get-profile
 
+import env_vars
 import upstox_client
 from upstox_client.rest import ApiException
 
 configuration = upstox_client.Configuration()
-configuration.access_token = '{your_access_token}'
+configuration.access_token = env_vars.UPSTOX_ACCESS_TOKEN
 api_version = '2.0'
 
 api_instance = upstox_client.UserApi(upstox_client.ApiClient(configuration))
