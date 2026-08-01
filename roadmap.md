@@ -2,7 +2,7 @@
 
 ## Objective
 
-In this project we will create a trading bot using the 5paisa APIs.
+In this project we will create a trading bot using the Upstox APIs.
 
 ### Execution steps
 

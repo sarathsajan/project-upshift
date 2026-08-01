@@ -1,4 +1,5 @@
 # Get user profile information using access token
+# https://upstox.com/developer/api-documentation/get-profile
 
 import upstox_client
 from upstox_client.rest import ApiException
