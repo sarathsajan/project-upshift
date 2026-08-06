@@ -9,7 +9,7 @@ In this project we will create a trading bot using the Upstox APIs.
 - **Phase 1: Setup & Validation**
   - [Mar 2027, planned] File availability and database integrity check
 - **Phase 2: Authentication & Data Retrieval**
-  - [Jul 2026, in progress] Authenticate and authorise
+  - [Aug 2026, completed] Authenticate and authorise
   - [Aug 2026, planned] Fetch latest ticker data
 - **Phase 3: Order Management**
   - [Sep 2026, planned] Check and cancel stale BUY orders
