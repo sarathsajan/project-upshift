@@ -85,3 +85,8 @@ so basically we can skip the whole process of programmatic logging in and
 generating access token which is then supplied to subsequent api calls. instead 
 all we have to do is every day login to developer dashboard, generate the 
 access token then update it in the env file.
+
+2026-08-07 - finally the individual api endpoints, credentials, auth and 
+static ip problems are all tackled. sigh of relief. now its only a matter of 
+connecting them all together as per logical requirements to create a price 
+alert bot that can hopefully send whatsapp or telegram notifications.

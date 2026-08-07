@@ -1,90 +1,139 @@
 # Project Upshift
 
-A research-focused trading automation prototype for Indian stock brokers. The repository captures early implementation work for broker API authentication, order management, and a DCA-style trading strategy.
+A research-oriented Upstox API automation workspace for building a trading workflow around market data, holdings, user profile information, brokerage checks, and order placement.
 
 ## What the project does
 
-Project Upshift is intended to automate a trading workflow that:
+Project Upshift is an exploratory Python project that connects to the Upstox SDK and uses broker API examples to test and prototype a trading system. The current workspace is organized around a collection of broker integration scripts rather than a finished trading engine.
 
-- connects to broker APIs and handles TOTP-based authentication
-- fetches market data, holdings, and active order details
-- evaluates open orders for cancellation or adjustment
-- applies a rule-based strategy for placing buy and sell orders
-- plans to support stop-loss and trailing order behavior
+The repository currently covers these practical areas:
+
+- reading credentials from a local JSON configuration file
+- retrieving user and account context through the Upstox SDK
+- fetching market information such as current LTP and instrument reference data
+- loading portfolio and brokerage-related API examples
+- placing a V3 order request against the Upstox API contract
 
 ## Why the project is useful
 
-This repository is useful for developers and researchers who want to:
+This project is useful for developers and researchers who are:
 
-- explore Indian broker automation with Python
-- understand broker authentication and order lifecycle handling
-- prototype algorithmic trading workflows using a DCA-inspired strategy
-- maintain a documented path from proof-of-concept to execution-ready code
+- learning how Upstox Python SDK examples map to REST-style broker workflows
+- prototyping rule-based trading logic around buy, sell, and stop-loss ideas
+- exploring a directory-driven layout that separates API access by domain
+- turning a proof-of-concept trading strategy into a more maintainable codebase
+
+The repository is intentionally small and modular. Each directory is a functional area that can be extended independently:
+
+- [orders/place_order.py](orders/place_order.py) demonstrates creating an Upstox V3 order request
+- [market/get_ltp_quotes.py](market/get_ltp_quotes.py) fetches last-traded-price market data
+- [user/get_profile.py](user/get_profile.py) and [user/get_fund_and_margin.py](user/get_fund_and_margin.py) read account context
+- [portfolio/get_holdings.py](portfolio/get_holdings.py) reads broker portfolio holdings
+- [charges/brokerage_details.py](charges/brokerage_details.py) demonstrates brokerage calculation access
+- [instruments/get_instrument_info.py](instruments/get_instrument_info.py) downloads and searches instrument metadata
 
 ## Current status
 
-- Planning and exploratory development is in progress
-- Authentication and TOTP integration is being researched
-- Broker API workflows are still experimental
-- No production-ready trading engine exists yet
-- `codebase/` is currently empty or pending implementation
+This repository is best understood as an implementation sandbox and planning workspace:
+
+- Upstox integration is active and the SDK dependency is present
+- Data access and order examples are present as scripts
+- A DCA-style trading strategy is described in [roadmap.md](roadmap.md)
+- The project is not a production-ready trading engine and should not be treated as financial advice
 
 ## Getting started
 
 ### Prerequisites
 
-- Python 3.11+ (or compatible Python 3.x)
-- access to an Indian broker API account (5paisa, Upstox, or similar)
-- valid API credentials and any broker-specific registration requirements
+Before using the repository, make sure you have:
+
+- Python 3.11 or a compatible Python 3.x runtime
+- an Upstox developer account and access token
+- a local [env.json](env.json) file containing the required token values
+- internet access for broker API and instrument data calls
 
 ### Install dependencies
+
+Install the Python requirements from the repository root:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### Repository files
+The current direct dependencies are listed in [requirements.txt](requirements.txt):
 
-- `requirements.txt` — dependency manifest for Python packages used by the project
-- `logic.txt` — trading strategy notes and planned logic flow
-- `dev_log.txt` — development journal, research findings, and blocker notes
-- `roadmap.md` — project phases and strategy roadmap
-- `.github/prompts/` — workspace prompt templates for README generation and code review
-- `codebase/` — primary implementation folder (under development)
+```text
+PyOTP==2.10.0
+upstox-python-sdk==2.28.0
+```
 
-### How to use
+### Configure credentials
 
-This repository is currently a prototype. The best way to get started is:
+Create or update [env.json](env.json) with the token values expected by the credential loaders:
 
-1. review the trading strategy in `logic.txt`
-2. read the development notes in `dev_log.txt`
-3. follow the planned phases in `roadmap.md`
-4. begin implementing broker integration and execution code under `codebase/`
+```json
+{
+  "UPSTOX_ACCESS_TOKEN": "<your-access-token>",
+  "UPSTOX_ACCESS_TOKEN_SANDBOX": "<optional-sandbox-token>"
+}
+```
 
-## Roadmap
+Each read helper reads the same file using a path relative to the current working directory. Because the scripts are standalone examples, they are usually run from within their own folder.
 
-The roadmap includes:
+### Example usage
 
-- setup and validation
-- authentication and data retrieval
-- order management (cancel, modify, place orders)
-- operations and monitoring with a tracking database
-- fail-safe controls such as a panic button or kill switch
+To try the order example from the project root:
+
+```bash
+cd orders
+python place_order.py
+```
+
+If you want to inspect market quotes:
+
+```bash
+cd market
+python get_ltp_quotes.py
+```
+
+The scripts rely on the Upstox Python SDK classes, such as `OrderApiV3`, `MarketQuoteV3Api`, `UserApi`, and `PortfolioApi`.
+
+## Project layout
+
+```text
+project-upshift/
+├── env.json                   # runtime credentials and tokens
+├── requirements.txt           # Python dependency manifest
+├── roadmap.md                 # high-level execution plan
+├── dev_log.txt                # development notes and research journal
+├── charges/                   # brokerage examples
+├── instruments/               # complete instrument data download and search helpers
+├── market/                    # market quote examples
+├── orders/                    # order request examples
+├── portfolio/                 # portfolio APIs and holdings examples
+└── user/                      # login, profile, margin, and logout examples
+```
 
 ## Where to get help
 
-- Open an issue in this repository for bugs, questions, or feature requests
-- Review `dev_log.txt`, `logic.txt`, and `roadmap.md` for project context
-- Seek broker-specific support if you need help with API authentication or order execution
+Useful reference points for this project are:
+
+- [roadmap.md](roadmap.md) for milestones and trade-bot phases
+- [dev_log.txt](dev_log.txt) for historical notes and design decisions
+- the Upstox Python SDK examples that correspond to the API contract being used
+- the Upstox developer documentation for protocol and account requirements
+
+For implementation questions or feature discussions, open an issue in the repository and include the script name, expected input, and API response details when possible.
 
 ## Maintainers and contributing
 
-This project is maintained by the repository owner and is open to contributions.
+This repository is currently maintained as an open development workspace. Contributions are welcome in the form of:
 
-Contributions are welcome via:
+- bug fixes and examples that improve script correctness
+- documentation updates that clarify setup or broker workflows
+- new API wrappers or strategy modules that fit the current project structure
 
-- pull requests with implementation or documentation improvements
-- issues for clarifications or feature ideas
-- updates that improve onboarding and developer flow
+Before opening or reviewing a change, please keep the code aligned with the existing folder structure and the Python dependency manifest in [requirements.txt](requirements.txt).
 
-> Note: This repository is a research/proof-of-concept project and is not financial advice.
+> Note: This repository is a research and proof-of-concept project. It is not intended as financial advice and should not be used for production trading without security, risk, and validation review.
+
