@@ -1,10 +1,26 @@
-import re
+import gzip
 import json
-import pprint
+import re
+import shutil
+from urllib.request import Request, urlopen
 
-SEARCH_NAME = "RELIANCE INDUSTRIES"
-SEARCH_SEGMENT = "EQ" # EQ stands for equity segment for both NSE_EQ and BSE_EQ
+URL = "https://assets.upstox.com/market-quote/instruments/exchange/complete.json.gz"
+GZ_PATH = "complete.json.gz"
+JSON_PATH = "complete.json"
+SEARCH_NAME = "STARLINE"
+SEARCH_SEGMENT = "EQ"
 
+
+############### download and decompress scrips data ###############
+request = Request(URL)
+with urlopen(request) as response, open(GZ_PATH, "wb") as f:
+    shutil.copyfileobj(response, f)
+
+with gzip.open(GZ_PATH, "rb") as gz_file, open(JSON_PATH, "wb") as out_file:
+    shutil.copyfileobj(gz_file, out_file)
+
+
+############### search scrips data ###############
 with open('complete.json') as f:
     COMPLETE_data = json.load(f)
 
@@ -19,5 +35,6 @@ results = [
     and re.search(rf".*{SEARCH_SEGMENT}$", item.get("segment", ""))
 ]
 
-pprint.pprint(results)
-print(len(results))
+for result_item in results:
+    print(result_item)
+print(f"\nfound {len(results)} results")
