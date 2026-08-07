@@ -1,3 +1,6 @@
+# get a list of all instruments available at the beginning of the day.
+# https://upstox.com/developer/api-documentation/instruments
+
 import gzip
 import json
 import re
@@ -7,8 +10,8 @@ from urllib.request import Request, urlopen
 URL = "https://assets.upstox.com/market-quote/instruments/exchange/complete.json.gz"
 GZ_PATH = "complete.json.gz"
 JSON_PATH = "complete.json"
-SEARCH_NAME = "STARLINE"
 SEARCH_SEGMENT = "EQ"
+SEARCH_NAME = "RELIANCE INDUSTRIES"
 
 
 ############### download and decompress scrips data ###############
