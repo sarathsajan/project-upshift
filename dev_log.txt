@@ -90,3 +90,10 @@ access token then update it in the env file.
 static ip problems are all tackled. sigh of relief. now its only a matter of 
 connecting them all together as per logical requirements to create a price 
 alert bot that can hopefully send whatsapp or telegram notifications.
+
+2026-08-09 - i have the alert system ready and working with the logic just as i 
+wished since 2020. this bot will alert me or the logged in user when to buy or 
+sell or hold based on my modified untested dca strategy. what happens once the 
+alert is sent is currently upto the user. i am planning to automate that part 
+as well. that is instead of just sending a BUY or SELL signal, just send the 
+BUY order or the SELL order directly to the broker. profit maxxing ftw.
