@@ -4,14 +4,21 @@
 import gzip
 import json
 import re
+import os
 import shutil
+import subprocess
 from urllib.request import Request, urlopen
+
+if os.name == 'nt':
+    subprocess.run('cls', shell=True, check=False)      # Windows
+else:
+    subprocess.run('clear', shell=True, check=False)    # POSIX (Linux, macOS)
 
 URL = "https://assets.upstox.com/market-quote/instruments/exchange/complete.json.gz"
 GZ_PATH = "complete.json.gz"
 JSON_PATH = "complete.json"
 SEARCH_SEGMENT = "EQ"
-SEARCH_NAME = "RELIANCE INDUSTRIES"
+SEARCH_NAME = "idbi bank"
 
 
 ############### download and decompress scrips data ###############
@@ -34,7 +41,7 @@ with open('complete.json') as f:
 
 results = [
     item for item in COMPLETE_data
-    if re.search(rf".*{SEARCH_NAME}.*", item.get("name", ""))
+    if re.search(rf".*{SEARCH_NAME.upper()}.*", item.get("name", ""))
     and re.search(rf".*{SEARCH_SEGMENT}$", item.get("segment", ""))
 ]
 
