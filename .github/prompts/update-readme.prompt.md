@@ -1,6 +1,6 @@
 ---
 agent: 'agent'
-description: 'Create a comprehensive README.md file for the project'
+description: 'Create or update a comprehensive README.md file for the project'
 ---
 
 ## Role
