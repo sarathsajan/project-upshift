@@ -1,2 +1,2 @@
-PyOTP==2.10.0
 upstox-python-sdk==2.28.0
+tzdata==2026.3
