@@ -1,63 +1,36 @@
-import os
+import time
 import subprocess
 import datetime as dt
 import zoneinfo
-import read_creds
-import upstox_client
-from upstox_client.rest import ApiException
+from pathlib import Path
 
-box_width = 12
-final_log = []
-datetime_now_ist_tz = dt.datetime.now(zoneinfo.ZoneInfo("Asia/Kolkata")).replace(microsecond=0)
+BOT_DIR = Path(__file__).resolve().parent
+PYTHON_EXE = Path(r"d:\projects\webapp projects\project-upshift\venv\Scripts\python.exe")
+BOT_SCRIPT = BOT_DIR / "price_alert_bot.py"
+market_close_ist_tz = dt.time(15, 0, 0, tzinfo=zoneinfo.ZoneInfo("Asia/Kolkata"))
 
-configuration = upstox_client.Configuration()
-configuration.access_token = read_creds.UPSTOX_ACCESS_TOKEN
-api_version = '2.0'
-user_api_instance = upstox_client.UserApi(upstox_client.ApiClient(configuration))
-portfolio_api_instance = upstox_client.PortfolioApi(upstox_client.ApiClient(configuration))
+while True:
+    current_time_ist_tz = dt.datetime.now(zoneinfo.ZoneInfo("Asia/Kolkata")).time().replace(microsecond=0)
 
-def generate_log(log_string):
-    print(log_string)
-    final_log.append(log_string)
-    
-# STEP 1
-# GET list of instruments to trade from the holdings
-generate_log(f"Timestamp (IST)\t:\t{datetime_now_ist_tz}")
-portfolio_api_response = portfolio_api_instance.get_holdings(api_version)
-user_api_response = user_api_instance.get_profile(api_version)
-current_holdings = portfolio_api_response.data    # list of objects of type upstox_client.models.holdings_data.HoldingsData # type: ignore
-generate_log(f"User Name\t\t:\t{user_api_response.data.user_name}")
-generate_log(f"User Email\t\t:\t{user_api_response.data.email}")
-generate_log(f"User ID\t\t\t:\t{user_api_response.data.user_id}")
+    if current_time_ist_tz >= market_close_ist_tz:
+        print(f"market is closed as of {current_time_ist_tz}")
+        break
 
-# STEP 2
-# FOR EACH instrument in holdings
-#   IF last traded price <= average price
-#       send BUY notification/order
-for instrument in current_holdings:
-    gross_profit_price = round(instrument.average_price * 1.11, 2)
-    generate_log(f"\n+{'-'*box_width}+")
-    generate_log(f"| Company Name\t\t:\t{instrument.company_name}")
-    generate_log(f"| ISIN\t\t\t:\t{instrument.isin}")
-    generate_log(f"| Instrument Key\t:\t{instrument.instrument_token}")
-    generate_log(f"| Quantity\t\t:\t{instrument.quantity}")
-    generate_log(f"| Average Price\t\t:\t{instrument.average_price}")
-    generate_log(f"| Last Traded Price\t:\t{instrument.last_price}")
-    generate_log(f"| Gross Profit Price\t:\t{gross_profit_price}")
-    if instrument.last_price >= gross_profit_price:
-        generate_log(f"|")
-        generate_log(f"| SELL")
-        generate_log(f"+{'-'*box_width}+")
-    elif instrument.last_price <= instrument.average_price:
-        generate_log(f"|")
-        generate_log(f"| BUY")
-        generate_log(f"+{'-'*box_width}+")
-    else:
-        generate_log(f"|")
-        generate_log(f"| HOLD")
-        generate_log(f"+{'-'*box_width}+")
+    print(f"market is open as of {current_time_ist_tz}")
+    print("starting bot")
 
-# write final_log to a text file
-with open(f"log_{datetime_now_ist_tz.strftime('%Y%m%d_%H0000')}.log", "w", encoding="utf-8") as log_file:
-    for log_item in final_log:
-        log_file.write(f"{log_item}\n")
+    result = subprocess.run(
+        [str(PYTHON_EXE), str(BOT_SCRIPT)],
+        cwd=str(BOT_DIR),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    if result.returncode != 0:
+        print("bot exited with a non-zero status")
+        print(result.stdout)
+        print(result.stderr)
+
+    print("sleeping for 15 minutes...\n")
+    time.sleep(60 * 15)
