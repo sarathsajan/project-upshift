@@ -30,6 +30,7 @@ current_holdings = portfolio_api_response.data    # list of objects of type upst
 generate_log(f"User Name\t\t:\t{user_api_response.data.user_name}")
 generate_log(f"User Email\t\t:\t{user_api_response.data.email}")
 generate_log(f"User ID\t\t\t:\t{user_api_response.data.user_id}")
+telegram_bot.send_telegram_message(f"Timestamp (IST)\t\t:\t{datetime_now_ist_tz}")
 
 # STEP 2
 # FOR EACH instrument in holdings
@@ -49,12 +50,12 @@ for instrument in current_holdings:
         generate_log(f"|")
         generate_log(f"| SELL")
         generate_log(f"+{'-'*box_width}+")
-        telegram_bot.send_telegram_message(f"{datetime_now_ist_tz}: SELL {instrument.company_name}, ltp at Rs.{instrument.last_price}, 11% hits at Rs.{gross_profit_price}")
+        telegram_bot.send_telegram_message(f"SELL : {instrument.company_name}\nLTP  : Rs.{instrument.last_price}\nGPP  : Rs.{gross_profit_price}")
     elif instrument.last_price <= instrument.average_price:
         generate_log(f"|")
         generate_log(f"| BUY")
         generate_log(f"+{'-'*box_width}+")
-        telegram_bot.send_telegram_message(f"{datetime_now_ist_tz}: BUY {instrument.company_name}, ltp at Rs.{instrument.last_price}, avg price at Rs.{instrument.average_price}")
+        telegram_bot.send_telegram_message(f"BUY  : {instrument.company_name}\nLTP  : Rs.{instrument.last_price}\nAVG  : Rs.{instrument.average_price}")
     else:
         generate_log(f"|")
         generate_log(f"| HOLD")

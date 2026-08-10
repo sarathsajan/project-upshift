@@ -31,6 +31,8 @@ while True:
         print("bot exited with a non-zero status")
         print(result.stdout)
         print(result.stderr)
+    else:
+        print(result.stdout)
 
     print("sleeping for 15 minutes...\n")
     time.sleep(60 * 15)
