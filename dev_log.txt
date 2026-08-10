@@ -97,3 +97,5 @@ sell or hold based on my modified untested dca strategy. what happens once the
 alert is sent is currently upto the user. i am planning to automate that part 
 as well. that is instead of just sending a BUY or SELL signal, just send the 
 BUY order or the SELL order directly to the broker. profit maxxing ftw.
+
+2026-08-10 - bot can alert me on telegram now.
