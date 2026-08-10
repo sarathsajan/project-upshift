@@ -10,3 +10,5 @@ with open(env_path, 'r', encoding='utf-8') as file:
     env_data = json.load(file)
 
 UPSTOX_ACCESS_TOKEN = env_data.get('UPSTOX_ACCESS_TOKEN')
+TELEGRAM_BOT_TOKEN = env_data.get('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = env_data.get('TELEGRAM_CHAT_ID')
