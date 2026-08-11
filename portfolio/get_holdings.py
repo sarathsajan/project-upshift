@@ -1,5 +1,6 @@
 # get the long term holdings of the user
 # https://upstox.com/developer/api-documentation/get-holdings
+# https://github.com/upstox/upstox-python/blob/master/examples/portfolio/code/get-holdings.md
 
 import read_creds
 import upstox_client
@@ -13,7 +14,7 @@ api_instance = upstox_client.PortfolioApi(upstox_client.ApiClient(configuration)
 
 try:
     api_response = api_instance.get_holdings(api_version)
-    all_holdings = api_response.data    # list of objects of type upstox_client.models.holdings_data.HoldingsData # type: ignore
+    all_holdings = api_response.data    # list of objects of type upstox_client.models.holdings_data.HoldingsData   # type: ignore
     
     for holding in all_holdings:
         print(holding)
