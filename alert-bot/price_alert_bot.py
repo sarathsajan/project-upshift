@@ -34,7 +34,7 @@ telegram_bot.send_telegram_message(f"Timestamp (IST)\t\t:\t{datetime_now_ist_tz}
 
 # STEP 2
 # FOR EACH instrument in holdings
-#   IF last traded price <= average price
+#   IF last traded price <= average price + open positions
 #       send BUY notification/order
 for instrument in current_holdings:
     gross_profit_price = round(instrument.average_price * 1.11, 2)
