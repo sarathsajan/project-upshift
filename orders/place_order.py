@@ -6,7 +6,7 @@ import read_creds
 import upstox_client
 from upstox_client.rest import ApiException
 
-INSTRUMENT_TOKEN = "NSE_EQ|INE002A01018"
+INSTRUMENT_TOKEN = "NSE_EQ|INE0LEZ01016"
 
 configuration = upstox_client.Configuration()
 configuration.access_token = read_creds.UPSTOX_ACCESS_TOKEN
