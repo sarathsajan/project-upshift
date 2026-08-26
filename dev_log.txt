@@ -99,3 +99,8 @@ as well. that is instead of just sending a BUY or SELL signal, just send the
 BUY order or the SELL order directly to the broker. profit maxxing ftw.
 
 2026-08-10 - bot can alert me on telegram now.
+
+2026-08-26 - landmark moment for this project. the bot averaged down on the 
+vodafone idea stock initialy bought at Rs.13 it eventually sold for over 11 
+percent profits. woohooo. so now we have the proof for the concept, all we have 
+to do now is scale to multiple stocks and dynamic position sizing.
