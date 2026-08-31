@@ -59,7 +59,7 @@ while True:
         #       IF no open positions for the day
         #           send BUY notification/order
         for holding in current_holdings:
-            gross_profit_price = round(holding.average_price * 1.11, 2)
+            gross_profit_price = round(holding.average_price * 1.12, 2)
             generate_log(f"\n+{'-'*box_width}+")
             generate_log(f"| Company Name\t\t:\t{holding.company_name}")
             generate_log(f"| ISIN\t\t\t:\t{holding.isin}")
@@ -77,8 +77,8 @@ while True:
                         generate_log("| POSITION ACTIVE")
                         generate_log(f"+{'-'*box_width}+")
                         break
-                    else:
-                        telegram_bot.send_telegram_message(f"SELL : {holding.company_name}\nLTP : Rs.{holding.last_price}\nGPP : Rs.{gross_profit_price}")
+                else:
+                    telegram_bot.send_telegram_message(f"SELL : {holding.company_name}\nLTP : Rs.{holding.last_price}\nGPP : Rs.{gross_profit_price}")
             elif holding.last_price <= holding.average_price:
                 generate_log("|")
                 generate_log("| BUY")
