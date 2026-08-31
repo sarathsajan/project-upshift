@@ -72,7 +72,13 @@ while True:
                 generate_log("|")
                 generate_log("| SELL")
                 generate_log(f"+{'-'*box_width}+")
-                telegram_bot.send_telegram_message(f"SELL : {holding.company_name}\nLTP : Rs.{holding.last_price}\nGPP : Rs.{gross_profit_price}")
+                for position in current_positions:
+                    if holding.isin == position.instrument_token[7:]:
+                        generate_log("| POSITION ACTIVE")
+                        generate_log(f"+{'-'*box_width}+")
+                        break
+                    else:
+                        telegram_bot.send_telegram_message(f"SELL : {holding.company_name}\nLTP : Rs.{holding.last_price}\nGPP : Rs.{gross_profit_price}")
             elif holding.last_price <= holding.average_price:
                 generate_log("|")
                 generate_log("| BUY")
