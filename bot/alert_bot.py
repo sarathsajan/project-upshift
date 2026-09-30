@@ -116,6 +116,10 @@ while True:
     except ApiException as e:
         print(f"Exception when calling Upstox API: {e}")
         telegram_bot.send_telegram_message(f"Upstox API error: {e}")
+        print(f"sleeping for {sleep_min} minutes...")
+        time.sleep(60 * sleep_min)
     except Exception as e:
         print(f"Unknown error caught: {e}")
         telegram_bot.send_telegram_message(f"Unknown error caught: {e}")
+        print(f"sleeping for {sleep_min} minutes...")
+        time.sleep(60 * sleep_min)
