@@ -1,5 +1,6 @@
 import requests
 import read_creds
+import time
 
 TELEGRAM_BOT_TOKEN = read_creds.TELEGRAM_BOT_TOKEN
 CHAT_ID = read_creds.TELEGRAM_CHAT_ID
@@ -10,4 +11,5 @@ def send_telegram_message(message):
         "chat_id": CHAT_ID,
         "text": message
     }
+    time.sleep(5)
     requests.post(url=TELEGRAM_SEND_MESSAGE_URL, data=payload)

@@ -11,6 +11,7 @@ box_width = 26
 final_log = []
 market_open_ist_tz = dt.time(9, 15, 0, tzinfo=zoneinfo.ZoneInfo("Asia/Kolkata"))
 market_close_ist_tz = dt.time(15, 15, 0, tzinfo=zoneinfo.ZoneInfo("Asia/Kolkata"))
+profit_factor = 1.12
 
 configuration = upstox_client.Configuration()
 configuration.access_token = read_creds.UPSTOX_ACCESS_TOKEN
@@ -59,7 +60,7 @@ while True:
         #       IF no open positions for the day
         #           send BUY notification/order
         for holding in current_holdings:
-            gross_profit_price = round(holding.average_price * 1.12, 2)
+            gross_profit_price = round(holding.average_price * profit_factor, 2)
             generate_log(f"\n+{'-'*box_width}+")
             generate_log(f"| Company Name\t\t:\t{holding.company_name}")
             generate_log(f"| ISIN\t\t\t:\t{holding.isin}")
@@ -79,11 +80,11 @@ while True:
                         break
                 else:
                     telegram_bot.send_telegram_message(f"""
-                                                            SELL : {holding.company_name}\n
-                                                            AVG : Rs.{holding.average_price}\n
-                                                            LTP  : Rs.{holding.last_price}\n
-                                                            GPP  : Rs.{gross_profit_price}
-                                                        """)
+                    SELL : {holding.company_name}\n
+                    AVG : Rs.{holding.average_price}\n
+                    LTP  : Rs.{holding.last_price}\n
+                    GPP  : Rs.{gross_profit_price}
+                    """)
             elif holding.last_price <= holding.average_price:
                 generate_log("|")
                 generate_log("| BUY")
@@ -95,11 +96,11 @@ while True:
                         break
                 else:
                     telegram_bot.send_telegram_message(f"""
-                                                            BUY : {holding.company_name}\n
-                                                            AVG : Rs.{holding.average_price}\n
-                                                            LTP : Rs.{holding.last_price}\n
-                                                            GPP : Rs.{gross_profit_price}
-                                                        """)
+                    BUY : {holding.company_name}\n
+                    AVG : Rs.{holding.average_price}\n
+                    LTP : Rs.{holding.last_price}\n
+                    GPP : Rs.{gross_profit_price}
+                    """)
             else:
                 generate_log("|")
                 generate_log("| HOLD")
