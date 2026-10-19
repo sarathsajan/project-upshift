@@ -79,12 +79,7 @@ while True:
                         generate_log(f"+{'-'*box_width}+")
                         break
                 else:
-                    telegram_bot.send_telegram_message(f"""
-                    SELL : {holding.company_name}\n
-                    AVG : Rs.{holding.average_price}\n
-                    LTP  : Rs.{holding.last_price}\n
-                    GPP  : Rs.{gross_profit_price}
-                    """)
+                    telegram_bot.send_telegram_message(f"""\nSELL : {holding.company_name}\nAVG : Rs.{holding.average_price}\nLTP  : Rs.{holding.last_price}\nGPP  : Rs.{gross_profit_price}""")
             elif holding.last_price <= holding.average_price:
                 generate_log("|")
                 generate_log("| BUY")
@@ -95,12 +90,7 @@ while True:
                         generate_log(f"+{'-'*box_width}+")
                         break
                 else:
-                    telegram_bot.send_telegram_message(f"""
-                    BUY : {holding.company_name}\n
-                    AVG : Rs.{holding.average_price}\n
-                    LTP : Rs.{holding.last_price}\n
-                    GPP : Rs.{gross_profit_price}
-                    """)
+                    telegram_bot.send_telegram_message(f"""BUY : {holding.company_name}\nAVG : Rs.{holding.average_price}\nLTP : Rs.{holding.last_price}\nGPP : Rs.{gross_profit_price}""")
             else:
                 generate_log("|")
                 generate_log("| HOLD")
